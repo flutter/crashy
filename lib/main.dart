@@ -36,7 +36,7 @@ import 'dsn.dart';
 /// 
 /// [SentryClient.environmentAttributes] are particularly useful in a real
 /// app. Use them to specify attributes of your app that do not change from
-/// one event to another, such as operating system type and verion, the
+/// one event to another, such as operating system type and version, the
 /// version of Flutter, and [device information][1].
 /// 
 /// [1]: https://github.com/flutter/plugins/tree/master/packages/device_info
