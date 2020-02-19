@@ -1,0 +1,20 @@
+branches:
+  only:
+    - master
+matrix:
+  include:
+    - os: osx
+      osx_image: xcode11.3
+script:
+  - curl -L https://raw.github.com/embarkmobile/android-sdk-installer/version-2/android-sdk-installer -o android-sdk-installer
+  - chmod u+x android-sdk-installer
+  - ./android-sdk-installer --dir=./android-sdk --install=build-tools-29.0.0,android-29,platform-tools-29.0.0 --accept="android-sdk-license-e6a904e8|android-sdk-license-e6a904e8|android-sdk-license-e6a904e8"
+  - export ANDROID_HOME=`pwd`/android-sdk/android-sdk-macosx
+  - brew update
+  - brew cask install adoptopenjdk/openjdk/adoptopenjdk8
+  - export JAVA_HOME=$(/usr/libexec/java_home -v 1.8)
+  - git clone https://github.com/flutter/flutter.git -b stable --depth 1
+  - export PATH=`pwd`/flutter/bin:`pwd`/flutter/bin/cache/dart-sdk/bin:$PATH
+  - # Write a fake DSN, required to build the app
+  - echo "String dsn = \"https://some-ley@sentry.io/1\";"> lib/dsn.dart
+  - ./build.sh

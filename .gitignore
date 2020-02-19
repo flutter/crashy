@@ -8,6 +8,8 @@ ios/.generated/
 packages
 pubspec.lock
 .flutter-plugins
+.dart_tool/
+android/.project
 
 # Intentionally ignored, because we don't want to see anyone's secret API keys in the repo
 lib/dsn.dart
