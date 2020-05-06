@@ -5,6 +5,8 @@
 .pub/
 build/
 ios/.generated/
+ios/Flutter/flutter_export_environment.sh
+ios/Flutter/Flutter.podspec
 packages
 pubspec.lock
 .flutter-plugins
