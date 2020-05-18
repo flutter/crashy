@@ -104,9 +104,9 @@ Future<Null> main() async {
   //
   // - https://api.dartlang.org/stable/1.24.2/dart-async/Zone-class.html
   // - https://www.dartlang.org/articles/libraries/zones
-  runZoned<Future<Null>>(() async {
+  runZonedGuarded<Future<Null>>(() async {
     runApp(new CrashyApp());
-  }, onError: (error, stackTrace) async {
+  }, (error, stackTrace) async {
     await _reportError(error, stackTrace);
   });
 }
